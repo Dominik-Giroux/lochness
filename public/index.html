@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Save Nessie | Loch Ness Monster</title>
+  <meta name="description"
+    content="I only need about tree fiddy... Damn Loch Ness Monster! This is a reference from South Park used in a context of a school art project.">
+
+  <meta property="og:title" content="Save Nessie | Loch Ness Monster" />
+  <meta property="og:description"
+    content="I only need about tree fiddy... Damn Loch Ness Monster! This is a reference from South Park used in a context of a school art project." />
+  <meta property="og:image" content="img/Three Fiddy.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link href="css/theme.css" rel="stylesheet" />
+
+  <!--Firebase-->
+  <script defer src="/__/firebase/8.6.2/firebase-app.js"></script>
+  <script defer src="/__/firebase/8.6.2/firebase-analytics.js"></script>
+  <script src="/__/firebase/init.js"></script>
+
+  <!--Share-->
+  <script defer src="js/share.js"></script>
+</head>
+
+<body>
+
+  <section class="max-w-xl my-4 px-4 mx-auto sm:text-center font-sans">
+    <h1 class="text-4xl sm:text-6xl">Loch Ness Monster</h1>
+    <p class="text-xl sm:text-2xl my-2">I only need about tree fiddy</p>
+    <img class="mx-auto" src="img/Three Fiddy.jpg" alt="Three Fiddy" width="496" height="400" />
+  </section>
+
+  <section class="max-w-xl mx-auto px-4">
+    <div id="smart-button-container">
+      <div style="text-align: center;">
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-md mx-auto px-4 flex justify-center">
+    <button class="px-4 py-2 flex-grow" style="background: rgb(44, 46, 47);" aria-label="Share" onclick="share()">
+      <img class="mx-auto" src="img/share.svg" alt="Share" width="24" height="24" />
+    </button>
+  </section>
+
+  <!--Paypal Donate-->
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"
+    data-sdk-integration-source="button-factory"></script>
+  <script>
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'rect',
+          color: 'black',
+          layout: 'horizontal',
+          label: 'pay',
+
+        },
+
+        createOrder: function (data, actions) {
+          return actions.order.create({
+            purchase_units: [{ "description": "Tree Fiddy", "amount": { "currency_code": "USD", "value": 3.5 } }]
+          });
+        },
+
+        onApprove: function (data, actions) {
+          return actions.order.capture().then(function (details) {
+            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+        },
+
+        onError: function (err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+  </script>
+
+</body>
+
+</html>

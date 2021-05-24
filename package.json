@@ -1,0 +1,25 @@
+{
+  "name": "lochness",
+  "version": "1.0.0",
+  "description": "Save the Loch Ness monster",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "postcss src/css/theme.css -o public/css/theme.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dominik-Giroux/lochness.git"
+  },
+  "keywords": [],
+  "author": "DominikG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dominik-Giroux/lochness/issues"
+  },
+  "homepage": "https://github.com/Dominik-Giroux/lochness#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.3.0",
+    "tailwindcss": "^2.1.2"
+  }
+}
