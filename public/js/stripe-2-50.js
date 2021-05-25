@@ -22,8 +22,8 @@
          * Instead use one of the strategies described in
          * https://stripe.com/docs/payments/checkout/fulfill-orders
          */
-        successUrl: "https://save-nessie.web.app/loch-ness-monster.html",
-        cancelUrl: "https://save-nessie.web.app/index.html"
+        successUrl: "https://save-nessie.web.app/damn-loch-ness-monster",
+        cancelUrl: "https://save-nessie.web.app/index"
       })
       .then(function (result) {
         if (result.error) {
